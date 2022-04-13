@@ -1,16 +1,16 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "jt782/require-read-terms-php",
+    "description": "Display modal for \"terms and conditions\", and require user read (scroll to bottom) and agree to those terms before submitting form.",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "782 Media, LLC.",
+        "require-read-terms-php"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/jt782/require-read-terms-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "John Todd",
+            "email": "john@782media.com",
             "role": "Developer"
         }
     ],
@@ -19,17 +19,16 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "pestphp/pest": "^1.20",
-        "spatie/ray": "^1.28"
+        "pestphp/pest": "^1.20"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Seven82Media\\RequireReadTerms\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Seven82Media\\RequireReadTerms\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -38,7 +37,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
