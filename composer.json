@@ -2,7 +2,6 @@
     "name": "jt782/require-read-terms-php",
     "description": "Display modal for \"terms and conditions\", and require user read (scroll to bottom) and agree to those terms before submitting form.",
     "keywords": [
-        "782 Media, LLC.",
         "require-read-terms-php"
     ],
     "homepage": "https://github.com/jt782/require-read-terms-php",
