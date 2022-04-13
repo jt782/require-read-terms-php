@@ -1,13 +1,13 @@
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
 
-# Display modal for "terms and conditions", and require user read (scroll to bottom) and agree to those terms before submitting form.
+# Require Read/Agree to Terms on Form
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jt782/require-read-terms-php.svg?style=flat-square)](https://packagist.org/packages/jt782/require-read-terms-php)
 [![Tests](https://github.com/jt782/require-read-terms-php/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/jt782/require-read-terms-php/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/jt782/require-read-terms-php.svg?style=flat-square)](https://packagist.org/packages/jt782/require-read-terms-php)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Display modal for "terms and conditions", and require user read (scroll to bottom) and agree to those terms before submitting form.
 
 ## Support us
 
@@ -27,9 +27,21 @@ composer require jt782/require-read-terms-php
 
 ## Usage
 
+1. Initialize class with form ID and terms content:
+
 ```php
-$skeleton = new Seven82Media\RequireReadTerms();
-echo $skeleton->echoPhrase('Hello, 782Media!');
+use Seven82Media\RequireReadTerms\FormTerms;
+
+$terms = new FormTerms(
+    'id-of-form',
+    '<p>terms go here</p>'
+);
+```
+
+2. Within the form, load content and display button:
+
+```php
+$terms->loadModalDisplayButton()
 ```
 
 ## Testing
