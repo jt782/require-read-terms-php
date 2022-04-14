@@ -1,0 +1,29 @@
+{
+  "name": "require-read-terms-php",
+  "version": "1.0.0",
+  "description": "[<img src=\"https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1\" />](https://supportukrainenow.org)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jt782/require-read-terms-php.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jt782/require-read-terms-php/issues"
+  },
+  "homepage": "https://github.com/jt782/require-read-terms-php#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.43"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.4.8"
+  }
+}
