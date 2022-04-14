@@ -32,7 +32,7 @@ EOD;
 
     public function getScriptCode(): string
     {
-        $jsFile = __DIR__ . '../dist/require-read-terms.js';
+        $jsFile = __DIR__ . '/../dist/require-read-terms.js';
 
         ob_start();
 
