@@ -63,7 +63,7 @@ EOD;
 
     public function getScriptCode(): string
     {
-        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@dev/dist/require-read-terms.js';
+        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@dev-1.0.1/dist/require-read-terms.js';
 //        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         return <<<EOD
