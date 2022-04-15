@@ -32,23 +32,17 @@ EOD;
 
     public function getScriptCode(): string
     {
-        $jsFile = __DIR__ . '/../dist/require-read-terms.js';
-
-        ob_start();
+        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@dev/dist/require-read-terms.js';
 
         echo <<<EOD
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{$jsFile}"></script>
 <script>
-EOD;
-
-        require_once($jsFile);
-
-        echo <<<EOD
-    var requireReadTerms = new RequireReadTerms('{$this->formId}')
+var requireReadTermsConfig = {
+    formId: '{$this->formId}'
+}
 </script>
 EOD;
-
-        return ob_get_clean();
     }
 
     public function loadScript(): void
