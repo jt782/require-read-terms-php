@@ -7,12 +7,43 @@ class FormTerms
     protected string $formId;
     protected string $terms;
 
+    protected string $agreeButtonText = "Yes, I agree to these terms";
+    protected string $agreeButtonColor = "#188632";
+
+    protected string $cancelButtonText = "No, I don't agree";
+    protected string $cancelButtonColor = "#d33";
+
     public function __construct(
         string $formId,
         string $terms
     ) {
-        $this->formId = $formId;
+        $this->formId = $this->sanitizeTextForJs($formId);
         $this->terms = $terms;
+    }
+
+    public function agreeButtonText(string $text)
+    {
+        $this->agreeButtonText = $this->sanitizeTextForJs($text);
+    }
+
+    public function agreeButtonColor(string $color)
+    {
+        $this->agreeButtonColor = $this->sanitizeTextForJs($color);
+    }
+
+    public function cancelButtonText(string $text)
+    {
+        $this->cancelButtonText = $this->sanitizeTextForJs($text);
+    }
+
+    public function cancelButtonColor(string $color)
+    {
+        $this->cancelButtonColor = $this->sanitizeTextForJs($color);
+    }
+
+    private function sanitizeTextForJs(string $text)
+    {
+        return json_encode($text);
     }
 
     public function getButton(): string
@@ -33,15 +64,19 @@ EOD;
     public function getScriptCode(): string
     {
         $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@dev/dist/require-read-terms.js';
+//        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         return <<<EOD
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{$jsFile}"></script>
 <script>
-var requireReadTermsConfig = {
-    formId: '{$this->formId}'
-}
+    var requireReadTermsConfig = {
+        formId: '{$this->formId}',
+        agreeButtonText: '{$this->agreeButtonText}',
+        agreeButtonColor: '{$this->agreeButtonColor}',
+        cancelButtonText: '{$this->cancelButtonText}',
+        cancelButtonColor: '{$this->cancelButtonColor}'
+    }
 </script>
+<script src="{$jsFile}"></script>
 EOD;
     }
 

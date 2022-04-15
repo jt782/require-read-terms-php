@@ -3513,7 +3513,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var RequireReadTerms = /*#__PURE__*/function () {
-  function RequireReadTerms(formId) {
+  function RequireReadTerms() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
     _classCallCheck(this, RequireReadTerms);
 
     _defineProperty(this, "haveRead", false);
@@ -3522,7 +3524,15 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "termsButton", document.getElementById("read-agree-terms-button"));
 
-    this.formId = formId;
+    _defineProperty(this, "agreeButtonText", "Yes, I agree to these terms");
+
+    _defineProperty(this, "agreeButtonColor", "#188632");
+
+    _defineProperty(this, "cancelButtonText", "No, I don't agree");
+
+    _defineProperty(this, "cancelButtonColor", "#d33");
+
+    Object.assign(this, config);
     this.eventListeners();
   }
 
@@ -3548,14 +3558,13 @@ var RequireReadTerms = /*#__PURE__*/function () {
   }, {
     key: "catchFormSubmit",
     value: function catchFormSubmit(e) {
-      if (e.preventDefault) e.preventDefault();
-      return this.confirmReadAndAgreed();
+      if (!window.requireReadTerms.confirmReadAndAgreed()) e.preventDefault();
     }
   }, {
     key: "confirmReadAndAgreed",
     value: function confirmReadAndAgreed() {
       if (!this.check()) return this.remind();
-      return this.check();
+      return true;
     }
   }, {
     key: "check",
@@ -3579,6 +3588,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
       this.read();
       this.haveAgreed = true;
       this.termsButton.classList.add('agreed');
+      this.termsButton.innerHTML = '<span>&#10003;</span> Agreed to Terms';
       this.closeModal();
     }
   }, {
@@ -3595,10 +3605,11 @@ var RequireReadTerms = /*#__PURE__*/function () {
         title: 'Terms & Conditions',
         html: document.getElementById("required-terms").innerHTML,
         // icon: 'warning',
-        showCancelButton: false,
-        confirmButtonColor: '#188632',
-        // cancelButtonColor: '#d33',
-        confirmButtonText: 'I agree to these terms'
+        showCancelButton: true,
+        confirmButtonColor: this.agreeButtonColor,
+        cancelButtonColor: this.cancelButtonColor,
+        confirmButtonText: this.agreeButtonText,
+        cancelButtonText: this.cancelButtonText
       }).then(function (result) {
         if (result.isConfirmed) {
           _this2.agreed();
@@ -3610,9 +3621,8 @@ var RequireReadTerms = /*#__PURE__*/function () {
   return RequireReadTerms;
 }();
 
-var requireReadTerms;
 document.addEventListener("DOMContentLoaded", function () {
-  requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId);
+  window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId);
 });
 })();
 

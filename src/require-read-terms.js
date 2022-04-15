@@ -6,8 +6,13 @@ class RequireReadTerms {
 
     termsButton = document.getElementById("read-agree-terms-button")
 
-    constructor(formId) {
-        this.formId = formId;
+    agreeButtonText = "Yes, I agree to these terms"
+    agreeButtonColor = "#188632"
+    cancelButtonText = "No, I don't agree"
+    cancelButtonColor = "#d33"
+
+    constructor(config={}) {
+        Object.assign(this, config)
 
         this.eventListeners()
     }
@@ -28,17 +33,15 @@ class RequireReadTerms {
     }
 
     catchFormSubmit(e) {
-        if (e.preventDefault)
+        if(!window.requireReadTerms.confirmReadAndAgreed())
             e.preventDefault()
-
-        return this.confirmReadAndAgreed()
     }
 
     confirmReadAndAgreed() {
         if (!this.check())
             return this.remind()
 
-        return this.check()
+        return true
     }
 
     check() {
@@ -62,6 +65,7 @@ class RequireReadTerms {
         this.haveAgreed = true
 
         this.termsButton.classList.add('agreed')
+        this.termsButton.innerHTML = '<span>&#10003;</span> Agreed to Terms'
 
         this.closeModal()
     }
@@ -75,10 +79,11 @@ class RequireReadTerms {
             title: 'Terms & Conditions',
             html: document.getElementById("required-terms").innerHTML,
             // icon: 'warning',
-            showCancelButton: false,
-            confirmButtonColor: '#188632',
-            // cancelButtonColor: '#d33',
-            confirmButtonText: 'I agree to these terms'
+            showCancelButton: true,
+            confirmButtonColor: this.agreeButtonColor,
+            cancelButtonColor: this.cancelButtonColor,
+            confirmButtonText: this.agreeButtonText,
+            cancelButtonText: this.cancelButtonText
         }).then((result) => {
             if (result.isConfirmed) {
                 this.agreed()
@@ -87,7 +92,6 @@ class RequireReadTerms {
     }
 }
 
-var requireReadTerms;
 document.addEventListener("DOMContentLoaded", function(){
-    requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId)
+    window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId)
 });

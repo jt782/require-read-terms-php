@@ -23,9 +23,8 @@ You can install the package via composer:
 
 ```bash
 composer require jt782/require-read-terms-php
-
-npm install
 ```
+#npm install
 
 ## Usage
 
@@ -40,10 +39,30 @@ $terms = new FormTerms(
 );
 ```
 
-2. Within the form, load content and display button:
+2. You can modify the following values with these methods:
+- Agree Button Text: ```$terms->agreeButtonText("Yes, I agree!")```
+- Agree Button Color: ```$terms->agreeButtonColor("green")```
+- Cancel Button Text: ```$terms->cancelButtonText("NO, this is dumb!")```
+- Cancel Button Color: ```$terms->cancelButtonColor("red")```
+
+3. Within the form, load content and display button:
 
 ```php
 $terms->loadModalDisplayButton()
+```
+
+4. If you want more control of the placement of the button vs the script, you can load them separately:
+
+- For button display:
+
+```php
+$terms->displayButton()
+```
+
+- For script output:
+
+```php
+$terms->loadScript()
 ```
 
 ## Testing
