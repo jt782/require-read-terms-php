@@ -24,7 +24,6 @@ You can install the package via composer:
 ```bash
 composer require jt782/require-read-terms-php
 ```
-#npm install
 
 ## Usage
 

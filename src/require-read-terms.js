@@ -11,7 +11,9 @@ class RequireReadTerms {
     cancelButtonText = "No, I don't agree"
     cancelButtonColor = "#d33"
 
-    constructor(config={}) {
+
+    constructor(config = {}) {
+
         Object.assign(this, config)
 
         this.eventListeners()
@@ -93,5 +95,5 @@ class RequireReadTerms {
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-    window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId)
+    window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig)
 });

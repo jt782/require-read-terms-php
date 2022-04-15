@@ -3622,7 +3622,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
 }();
 
 document.addEventListener("DOMContentLoaded", function () {
-  window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig.formId);
+  window.requireReadTerms = new RequireReadTerms(requireReadTermsConfig);
 });
 })();
 

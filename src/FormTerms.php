@@ -43,7 +43,7 @@ class FormTerms
 
     private function sanitizeTextForJs(string $text)
     {
-        return json_encode($text);
+        return addcslashes($text, '"');
     }
 
     public function getButton(): string
@@ -69,11 +69,11 @@ EOD;
         return <<<EOD
 <script>
     var requireReadTermsConfig = {
-        formId: '{$this->formId}',
-        agreeButtonText: '{$this->agreeButtonText}',
-        agreeButtonColor: '{$this->agreeButtonColor}',
-        cancelButtonText: '{$this->cancelButtonText}',
-        cancelButtonColor: '{$this->cancelButtonColor}'
+        formId: "{$this->formId}",
+        agreeButtonText: "{$this->agreeButtonText}",
+        agreeButtonColor: "{$this->agreeButtonColor}",
+        cancelButtonText: "{$this->cancelButtonText}",
+        cancelButtonColor: "{$this->cancelButtonColor}"
     }
 </script>
 <script src="{$jsFile}"></script>
