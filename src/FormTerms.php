@@ -34,7 +34,7 @@ EOD;
     {
         $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@dev/dist/require-read-terms.js';
 
-        echo <<<EOD
+        return <<<EOD
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{$jsFile}"></script>
 <script>

@@ -11,5 +11,6 @@ it('can get content', function () {
 
     expect($terms)->toBeInstanceOf(FormTerms::class);
     expect($terms->getButton())->toContain('terms go here');
-    expect($terms->getScriptCode())->toContain("new RequireReadTerms('{$formId}')");
+    expect($terms->getScriptCode())->toContain("requireReadTermsConfig");
+    expect($terms->getScriptCode())->toContain($formId);
 });
