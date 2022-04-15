@@ -1,6 +1,3 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # Require Read/Agree to Terms on Form
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jt782/require-read-terms-php.svg?style=flat-square)](https://packagist.org/packages/jt782/require-read-terms-php)
@@ -8,14 +5,6 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/jt782/require-read-terms-php.svg?style=flat-square)](https://packagist.org/packages/jt782/require-read-terms-php)
 
 Display modal for "terms and conditions", and require user read (scroll to bottom) and agree to those terms before submitting form.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/require-read-terms-php.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/require-read-terms-php)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -28,7 +17,6 @@ composer require jt782/require-read-terms-php
 ## Usage
 
 1. Initialize class with form ID and terms content:
-
 ```php
 use Seven82Media\RequireReadTerms\FormTerms;
 
@@ -37,31 +25,40 @@ $terms = new FormTerms(
     '<p>terms go here</p>'
 );
 ```
-
 2. You can modify the following values with these methods:
 - Agree Button Text: ```$terms->agreeButtonText("Yes, I agree!")```
 - Agree Button Color: ```$terms->agreeButtonColor("green")```
 - Cancel Button Text: ```$terms->cancelButtonText("NO, this is dumb!")```
 - Cancel Button Color: ```$terms->cancelButtonColor("red")```
-
 3. Within the form, load content and display button:
-
 ```php
 $terms->loadModalDisplayButton()
 ```
-
 4. If you want more control of the placement of the button vs the script, you can load them separately:
-
 - For button display:
-
 ```php
 $terms->displayButton()
 ```
-
 - For script output:
-
 ```php
 $terms->loadScript()
+```
+
+##Example
+
+```php
+<?php
+$terms = new FormTerms('test-form', '<p>Term content goes here</p>');
+?>
+<form id="test-form" method="get" action="/form">
+    <?php
+        $terms->loadModalDisplayButton();
+    ?>
+
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
 ```
 
 ## Testing
