@@ -11,10 +11,15 @@ class RequireReadTerms {
     cancelButtonText = "No, I don't agree"
     cancelButtonColor = "#d33"
 
+    checkboxFieldId = null
+    checkboxField = false
 
     constructor(config = {}) {
 
         Object.assign(this, config)
+
+        if(this.checkboxFieldId != null)
+            this.checkboxField = document.getElementById(this.checkboxFieldId)
 
         this.eventListeners()
     }
@@ -68,6 +73,9 @@ class RequireReadTerms {
 
         this.termsButton.classList.add('agreed')
         this.termsButton.innerHTML = '<span>&#10003;</span> Agreed to Terms'
+
+        if(this.checkboxField)
+            this.checkboxFieldId.checked = true
 
         this.closeModal()
     }

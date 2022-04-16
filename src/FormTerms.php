@@ -13,12 +13,19 @@ class FormTerms
     protected string $cancelButtonText = "No, I don't agree";
     protected string $cancelButtonColor = "#d33";
 
+    protected ?string $checkboxFieldId = null;
+
     public function __construct(
         string $formId,
         string $terms
     ) {
         $this->formId = $this->sanitizeTextForJs($formId);
         $this->terms = $terms;
+    }
+
+    public function checkboxFieldId(string $id)
+    {
+        $this->checkboxFieldId = $this->sanitizeTextForJs($id);
     }
 
     public function agreeButtonText(string $text)
@@ -63,7 +70,7 @@ EOD;
 
     public function getScriptCode(): string
     {
-        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@1.0.0/dist/require-read-terms.js';
+        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@1.2.0/dist/require-read-terms.js';
 
         return <<<EOD
 <script>

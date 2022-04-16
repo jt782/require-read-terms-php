@@ -3532,7 +3532,12 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "cancelButtonColor", "#d33");
 
+    _defineProperty(this, "checkboxFieldId", null);
+
+    _defineProperty(this, "checkboxField", false);
+
     Object.assign(this, config);
+    if (this.checkboxFieldId != null) this.checkboxField = document.getElementById(this.checkboxFieldId);
     this.eventListeners();
   }
 
@@ -3589,6 +3594,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
       this.haveAgreed = true;
       this.termsButton.classList.add('agreed');
       this.termsButton.innerHTML = '<span>&#10003;</span> Agreed to Terms';
+      if (this.checkboxField) this.checkboxFieldId.checked = true;
       this.closeModal();
     }
   }, {
