@@ -79,7 +79,8 @@ EOD;
         agreeButtonText: "{$this->agreeButtonText}",
         agreeButtonColor: "{$this->agreeButtonColor}",
         cancelButtonText: "{$this->cancelButtonText}",
-        cancelButtonColor: "{$this->cancelButtonColor}"
+        cancelButtonColor: "{$this->cancelButtonColor}",
+        checkboxFieldId: "{$this->checkboxFieldId}"
     }
 </script>
 <script src="{$jsFile}"></script>
