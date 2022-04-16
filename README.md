@@ -44,7 +44,7 @@ $terms->displayButton()
 $terms->loadScript()
 ```
 
-##Example
+## Example
 
 ```php
 <?php
