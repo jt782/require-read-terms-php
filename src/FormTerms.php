@@ -4,7 +4,7 @@ namespace Seven82Media\RequireReadTerms;
 
 class FormTerms
 {
-    protected string $formId;
+    protected string $formTarget;
     protected string $terms;
 
     protected string $agreeButtonText = "Yes, I agree to these terms";
@@ -16,10 +16,10 @@ class FormTerms
     protected ?string $checkboxFieldId = null;
 
     public function __construct(
-        string $formId,
+        string $formTarget,
         string $terms
     ) {
-        $this->formId = $this->sanitizeTextForJs($formId);
+        $this->formTarget = $this->sanitizeTextForJs($formTarget);
         $this->terms = $terms;
     }
 
@@ -75,7 +75,7 @@ EOD;
         return <<<EOD
 <script>
     var requireReadTermsConfig = {
-        formId: "{$this->formId}",
+        formTarget: "{$this->formTarget}",
         agreeButtonText: "{$this->agreeButtonText}",
         agreeButtonColor: "{$this->agreeButtonColor}",
         cancelButtonText: "{$this->cancelButtonText}",

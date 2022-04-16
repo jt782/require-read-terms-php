@@ -14,6 +14,8 @@ class RequireReadTerms {
     checkboxFieldId = null
     checkboxField = false
 
+    formTarget = false
+
     constructor(config = {}) {
 
         Object.assign(this, config)
