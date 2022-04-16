@@ -3532,14 +3532,14 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "cancelButtonColor", "#d33");
 
-    _defineProperty(this, "checkboxFieldTarget", null);
+    _defineProperty(this, "checkboxFieldTarget", false);
 
     _defineProperty(this, "checkboxField", false);
 
     _defineProperty(this, "formTarget", false);
 
     Object.assign(this, config);
-    if (this.checkboxFieldTarget != null) this.checkboxField = document.querySelector(this.checkboxFieldTarget);
+    if (this.checkboxFieldTarget) this.checkboxField = document.querySelector(this.checkboxFieldTarget);
     this.eventListeners();
   }
 

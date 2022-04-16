@@ -11,7 +11,7 @@ class RequireReadTerms {
     cancelButtonText = "No, I don't agree"
     cancelButtonColor = "#d33"
 
-    checkboxFieldTarget = null
+    checkboxFieldTarget = false
     checkboxField = false
 
     formTarget = false
@@ -20,7 +20,7 @@ class RequireReadTerms {
 
         Object.assign(this, config)
 
-        if(this.checkboxFieldTarget != null)
+        if(this.checkboxFieldTarget)
             this.checkboxField = document.querySelector(this.checkboxFieldTarget)
 
         this.eventListeners()
