@@ -3536,8 +3536,10 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "checkboxField", false);
 
+    _defineProperty(this, "formTarget", false);
+
     Object.assign(this, config);
-    if (this.checkboxFieldId != null) this.checkboxField = document.getElementById(this.checkboxFieldId);
+    if (this.checkboxFieldId != null) this.checkboxField = document.querySelector(this.checkboxFieldId);
     this.eventListeners();
   }
 
@@ -3547,7 +3549,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
       var _this = this;
 
       //catch form submit
-      var form = document.getElementById(this.formId);
+      var form = document.querySelector(this.formTarget);
 
       if (form.attachEvent) {
         form.attachEvent("submit", this.catchFormSubmit);
@@ -3609,7 +3611,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
       sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
         title: 'Terms & Conditions',
-        html: document.getElementById("required-terms").innerHTML,
+        html: document.querySelector("#required-terms").innerHTML,
         // icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: this.agreeButtonColor,
