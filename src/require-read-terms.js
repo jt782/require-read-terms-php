@@ -19,14 +19,14 @@ class RequireReadTerms {
         Object.assign(this, config)
 
         if(this.checkboxFieldId != null)
-            this.checkboxField = document.getElementById(this.checkboxFieldId)
+            this.checkboxField = document.querySelector(this.checkboxFieldId)
 
         this.eventListeners()
     }
 
     eventListeners() {
         //catch form submit
-        let form = document.getElementById(this.formId)
+        let form = document.querySelector(this.formTarget)
 
         if (form.attachEvent) {
             form.attachEvent("submit", this.catchFormSubmit)
@@ -87,7 +87,7 @@ class RequireReadTerms {
     showModal(){
         Swal.fire({
             title: 'Terms & Conditions',
-            html: document.getElementById("required-terms").innerHTML,
+            html: document.querySelector("#required-terms").innerHTML,
             // icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: this.agreeButtonColor,

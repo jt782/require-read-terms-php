@@ -16,12 +16,12 @@ composer require jt782/require-read-terms-php
 
 ## Usage
 
-1. Initialize class with form ID and terms content:
+1. Initialize class with form target (e.g. ".class" or "#id") and terms content:
 ```php
 use Seven82Media\RequireReadTerms\FormTerms;
 
 $terms = new FormTerms(
-    'id-of-form',
+    '#target-form-id',
     '<p>terms go here</p>'
 );
 ```
@@ -43,18 +43,31 @@ $terms->displayButton()
 ```php
 $terms->loadScript()
 ```
+5. If you have a checkbox for agree to terms, you can hide it visually and have the package check it once the user has agreed to terms:
+```php
+$terms->checkboxFieldId("agree-to-terms");
+?>
+<div style="display:none;">
+    <input type="checkbox" value="1" name="agreetoterms" id="agree-to-terms" />
+</div>
+```
 
 ## Example
 
 ```php
 <?php
-$terms = new FormTerms('test-form', '<p>Term content goes here</p>');
+    $terms = new FormTerms('.test-form', '<p>Term content goes here</p>');
+    $terms->checkboxFieldId("agree-to-terms");
 ?>
-<form id="test-form" method="get" action="/form">
+<form class="test-form" method="get" action="/form">
     <?php
         $terms->loadModalDisplayButton();
     ?>
 
+    <div style="display:none;">
+        <input type="checkbox" value="1" name="agreetoterms" id="agree-to-terms" />
+    </div>
+    
     <p>
         <button type="submit">Submit</button>
     </p>
