@@ -45,7 +45,7 @@ $terms->loadScript()
 ```
 5. If you have a checkbox for agree to terms, you can hide it visually and have the package check it once the user has agreed to terms:
 ```php
-$terms->checkboxFieldId("agree-to-terms");
+$terms->checkboxFieldTarget("#agree-to-terms");
 ?>
 <div style="display:none;">
     <input type="checkbox" value="1" name="agreetoterms" id="agree-to-terms" />
@@ -57,7 +57,7 @@ $terms->checkboxFieldId("agree-to-terms");
 ```php
 <?php
     $terms = new FormTerms('.test-form', '<p>Term content goes here</p>');
-    $terms->checkboxFieldId("agree-to-terms");
+    $terms->checkboxFieldTarget("#agree-to-terms");
 ?>
 <form class="test-form" method="get" action="/form">
     <?php

@@ -3532,14 +3532,14 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "cancelButtonColor", "#d33");
 
-    _defineProperty(this, "checkboxFieldId", null);
+    _defineProperty(this, "checkboxFieldTarget", null);
 
     _defineProperty(this, "checkboxField", false);
 
     _defineProperty(this, "formTarget", false);
 
     Object.assign(this, config);
-    if (this.checkboxFieldId != null) this.checkboxField = document.querySelector(this.checkboxFieldId);
+    if (this.checkboxFieldTarget != null) this.checkboxField = document.querySelector(this.checkboxFieldTarget);
     this.eventListeners();
   }
 
@@ -3596,7 +3596,7 @@ var RequireReadTerms = /*#__PURE__*/function () {
       this.haveAgreed = true;
       this.termsButton.classList.add('agreed');
       this.termsButton.innerHTML = '<span>&#10003;</span> Agreed to Terms';
-      if (this.checkboxField) this.checkboxFieldId.checked = true;
+      if (this.checkboxField) this.checkboxField.checked = true;
       this.closeModal();
     }
   }, {

@@ -13,7 +13,7 @@ class FormTerms
     protected string $cancelButtonText = "No, I don't agree";
     protected string $cancelButtonColor = "#d33";
 
-    protected ?string $checkboxFieldId = null;
+    protected ?string $checkboxFieldTarget = null;
 
     public function __construct(
         string $formTarget,
@@ -23,9 +23,9 @@ class FormTerms
         $this->terms = $terms;
     }
 
-    public function checkboxFieldId(string $id)
+    public function checkboxFieldTarget(string $id)
     {
-        $this->checkboxFieldId = $this->sanitizeTextForJs($id);
+        $this->checkboxFieldTarget = $this->sanitizeTextForJs($id);
     }
 
     public function agreeButtonText(string $text)
@@ -80,7 +80,7 @@ EOD;
         agreeButtonColor: "{$this->agreeButtonColor}",
         cancelButtonText: "{$this->cancelButtonText}",
         cancelButtonColor: "{$this->cancelButtonColor}",
-        checkboxFieldId: "{$this->checkboxFieldId}"
+        checkboxFieldTarget: "{$this->checkboxFieldTarget}"
     }
 </script>
 <script src="{$jsFile}"></script>
