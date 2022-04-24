@@ -4,6 +4,8 @@ namespace Seven82Media\RequireReadTerms;
 
 class FormTerms
 {
+    public const JS_FILE = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@1.5.1/dist/require-read-terms.js';
+
     protected string $formTarget;
     protected string $terms;
 
@@ -77,7 +79,7 @@ EOD;
 
     public function getScriptCode(): string
     {
-        $jsFile = 'https://cdn.jsdelivr.net/gh/jt782/require-read-terms-php@1.4.1/dist/require-read-terms.js';
+        $jsFile = self::JS_FILE;
 
         return <<<EOD
 <script>
