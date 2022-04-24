@@ -10,6 +10,7 @@ class RequireReadTerms {
     agreeButtonColor = "#188632"
     cancelButtonText = "No, I don't agree"
     cancelButtonColor = "#d33"
+    width = "64em"
 
     checkboxFieldTarget = false
     checkboxField = false
@@ -95,7 +96,8 @@ class RequireReadTerms {
             confirmButtonColor: this.agreeButtonColor,
             cancelButtonColor: this.cancelButtonColor,
             confirmButtonText: this.agreeButtonText,
-            cancelButtonText: this.cancelButtonText
+            cancelButtonText: this.cancelButtonText,
+            width: this.width
         }).then((result) => {
             if (result.isConfirmed) {
                 this.agreed()

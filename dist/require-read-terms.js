@@ -3532,6 +3532,8 @@ var RequireReadTerms = /*#__PURE__*/function () {
 
     _defineProperty(this, "cancelButtonColor", "#d33");
 
+    _defineProperty(this, "width", "64em");
+
     _defineProperty(this, "checkboxFieldTarget", false);
 
     _defineProperty(this, "checkboxField", false);
@@ -3617,7 +3619,8 @@ var RequireReadTerms = /*#__PURE__*/function () {
         confirmButtonColor: this.agreeButtonColor,
         cancelButtonColor: this.cancelButtonColor,
         confirmButtonText: this.agreeButtonText,
-        cancelButtonText: this.cancelButtonText
+        cancelButtonText: this.cancelButtonText,
+        width: this.width
       }).then(function (result) {
         if (result.isConfirmed) {
           _this2.agreed();
