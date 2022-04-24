@@ -30,6 +30,7 @@ $terms = new FormTerms(
 - Agree Button Color: ```$terms->agreeButtonColor("green")```
 - Cancel Button Text: ```$terms->cancelButtonText("NO, this is dumb!")```
 - Cancel Button Color: ```$terms->cancelButtonColor("red")```
+- Width: ```$terms->width("64em")```
 3. Within the form, load content and display button:
 ```php
 $terms->loadModalDisplayButton()

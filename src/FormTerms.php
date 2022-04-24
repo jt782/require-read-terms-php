@@ -15,6 +15,8 @@ class FormTerms
 
     protected ?string $checkboxFieldTarget = null;
 
+    protected string $width = "64em";
+
     public function __construct(
         string $formTarget,
         string $terms
@@ -46,6 +48,11 @@ class FormTerms
     public function cancelButtonColor(string $color)
     {
         $this->cancelButtonColor = $this->sanitizeTextForJs($color);
+    }
+
+    public function width(string $width)
+    {
+        $this->width = $this->sanitizeTextForJs($width);
     }
 
     private function sanitizeTextForJs(string $text)
@@ -80,7 +87,8 @@ EOD;
         agreeButtonColor: "{$this->agreeButtonColor}",
         cancelButtonText: "{$this->cancelButtonText}",
         cancelButtonColor: "{$this->cancelButtonColor}",
-        checkboxFieldTarget: "{$this->checkboxFieldTarget}"
+        checkboxFieldTarget: "{$this->checkboxFieldTarget}",
+        width: "{$this->width}"
     }
 </script>
 <script src="{$jsFile}"></script>
